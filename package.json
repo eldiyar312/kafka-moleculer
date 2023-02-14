@@ -1,0 +1,84 @@
+{
+  "name": "cube-core",
+  "version": "1.0.0",
+  "description": "My Moleculer-based microservices project",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "dev": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js --hot --repl --config moleculer.config.ts services/**/*.service.ts",
+    "core-dev": "moleculer-runner --repl --instances 1 services",
+    "start": "moleculer-runner --config dist/moleculer.config.js",
+    "cli": "moleculer connect Kafka",
+    "ci": "jest --watch",
+    "test": "jest --coverage",
+    "lint": "eslint --ext .js,.ts .",
+    "dc:up": "docker-compose up --build -d",
+    "dc:logs": "docker-compose logs -f",
+    "dc:down": "docker-compose down"
+  },
+  "keywords": [
+    "microservices",
+    "moleculer"
+  ],
+  "author": "",
+  "devDependencies": {
+    "@types/cron": "^2.0.0",
+    "@types/luxon": "^2.3.1",
+    "@types/pg": "^8.6.5",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "moleculer-repl": "^0.6.6",
+    "ts-jest": "^25.3.0",
+    "ts-node": "^8.8.1"
+  },
+  "dependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/mkdirp": "^1.0.0",
+    "@types/node": "^13.9.8",
+    "cron": "^2.0.0",
+    "dotenv": "^16.0.1",
+    "ioredis": "^4.14.1",
+    "kafkajs": "^1.16.0",
+    "luxon": "^2.3.1",
+    "moleculer": "^0.14.0",
+    "moleculer-db": "^0.8.4",
+    "moleculer-db-adapter-mongo": "^0.4.7",
+    "moleculer-web": "^0.9.0",
+    "moment": "^2.29.4",
+    "nats": "^2.7.1",
+    "node-orangedata": "^1.2.4",
+    "pg": "^8.7.3",
+    "typescript": "^3.8.3",
+    "uuid": "^8.3.2",
+    "winston": "^3.6.0",
+    "winston-elasticsearch": "^0.16.1"
+  },
+  "engines": {
+    "node": ">= 10.x.x"
+  },
+  "jest": {
+    "coverageDirectory": "<rootDir>/coverage",
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.spec.(ts|js)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    }
+  }
+}
